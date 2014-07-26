@@ -1,0 +1,6 @@
+module.exports = {
+    options: {
+        DEFAULT_PORT:3000,
+        mongoUri:"mongodb://localhost:27017/mocai18n"
+    }
+};
