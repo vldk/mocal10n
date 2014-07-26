@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Authorization</title>
+        <meta charset='utf-8'/>
+        <link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+        <link rel='stylesheet' href='/bootstrap/css/bootstrap.vertical-tabs.css' />
+        <link rel='stylesheet' href='/css/style.css' />
+    </head>
+<body>
+    <div class="container">
+        <form class="form-login" role="form" action="/login" method="post">
+            <h2 class="form-signin-heading">Please log in</h2>
+            <input type="email" name="email" class="form-control" placeholder="Email address" required=""  autofocus="">
+            <input type="password" name="password" class="form-control" placeholder="Password" required="">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+            <br/>
+            <p><small>Note: to get access for this resource please contact to <a href="mailto:change@me.com">Admin</a></small></p>
+        </form>
+    </div>
+</body>
+</html>

@@ -4,10 +4,13 @@ var express = require('express')
     , logger = require('morgan')
     , cookieParser = require('cookie-parser')
     , bodyParser = require('body-parser')
-
+    , passport = require('passport')
+    , session = require('express-session')
     , routes = require('./routes/index')
-    , users = require('./routes/users')
+    , auth = require('./routes/auth')
+    //, users = require('./routes/users')
 ;
+
 
 var app = express();
 
@@ -22,9 +25,20 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({ secret: 'surprise surprise', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+//app.use(passport.session({ secret: 'surprise surprise' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', routes);
+app.use('/login', auth);
+app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
+});
+
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -56,5 +70,6 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
 
 module.exports = app;

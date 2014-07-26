@@ -1,0 +1,37 @@
+body {
+  padding: 5px;
+}
+form.ns-edit {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.wrapper {
+  width: auto;
+}
+.form-login {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.list-group-item .download-link {
+  float: right;
+}
+.list-group-item .label {
+  margin-right: 5px;
+}
+.phrases-panel .panel-heading {
+  cursor: pointer;
+}
+.phrases-table td {
+  width: 35%;
+}
+.phrases-table td:nth-child(1) {
+  width: 15%;
+}
+/*.loader {
+  display:block;
+  position:absolute;
+  top:0; bottom:0; left:0; right:0;
+  background:rgba(0,0,0,0.5);
+}*/

@@ -2,5 +2,11 @@ module.exports = {
     options: {
         DEFAULT_PORT:3000,
         mongoUri:"mongodb://localhost:27017/mocai18n"
-    }
+    },
+    users: [
+        { id: -1, username: "Guest", passwd: "", email: '', type: "guest"}
+        , { id: 0, username: "Odmin", passwd: "123321", email: "change@me.com", type: "admin"}
+        , { id: 1, username: "Test", passwd: "123123", email: "test@win-interactive.com" }
+        , { id: 1, username: "Test", passwd: "123123", email: "test@win-interactive.com" }
+    ]
 };

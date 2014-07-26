@@ -1,11 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>WebTranslate tool</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=1"/>
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='/bootstrap/css/bootstrap.vertical-tabs.css' />
     <link rel='stylesheet' href='/css/style.css' />
+
+    <script data-main="/js/main" src="/js/lib/require.js"></script>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <div class="container">
+      <div>
+          <nav class="navbar navbar-inverse" role="navigation">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/">WebTranslate tool</a>
+              </div>
+              <div class="navbar-collapse collapse">
+
+                  <!--<ul class="nav navbar-nav">
+                      <li><a href="{{item.link}}">{{item.name}}</a></li>
+
+                  </ul>-->
+                  <% if (user) { %>
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="/logout">Logout, <%=user.username%></a></li>
+                  </ul>
+                  <% }%>
+              </div>
+          </nav>
+          <!--div class="alert" ng-class="alertType" ng-cloak ng-show="alertMessage">{{alertMessage}}</div-->
+      </div>
+      <div class="wrapper" id="#appContent">
+
+      </div>
+  </div>
   </body>
 </html>
