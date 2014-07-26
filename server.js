@@ -8,7 +8,6 @@ var express = require('express')
     , session = require('express-session')
     , routes = require('./routes/index')
     , auth = require('./routes/auth')
-    //, users = require('./routes/users')
 ;
 
 

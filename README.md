@@ -28,8 +28,8 @@ By default application is available on [http://localhost:3000/][3] (can be chang
 
 #TODO:
  * authorization
-     * by email only
-     * hardcoded passwords (temporary)
+     * ~~by email only (done)~~
+     * ~~hardcoded passwords (temporary) (done)~~
      * roles? 
      * online users count (by socket.io)
  * navigation (with direct links)
