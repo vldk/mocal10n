@@ -1,0 +1,18 @@
+<script type="text/template" id="groupsList">
+    <div class="page-header">
+        <h1>UI for translation editing
+            <small>on "MOCA"-projects</small>
+        </h1>
+    </div>
+
+    <ul class="list-group">
+        <li class="dropdown-header">Available next namespaces:</li>
+        <%= ( typeof  groups !== "undefined" ? groups: typeof groups) %>
+        <!--<li class="list-group-item" ng-repeat="ns in list | orderBy:'!is_common'">
+            <a href="/#/namespaces/{{ns.name}}/en">{{ns.name}}</a>
+            <a href="javascript:alert('todo download archive')" class="download-link"><i class="glyphicon glyphicon-download"></i> download</a>
+            <span class="label pull-right" ng-class="{'label-info':ns.is_common, 'label-default':!ns.is_common}">{{ns.is_common?'Common':'Game'}}</span>
+        </li>-->
+    </ul>
+
+</script>

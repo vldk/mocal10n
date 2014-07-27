@@ -1,0 +1,22 @@
+{
+    "eqeqeq":true,
+    "latedef":true,
+    "newcap":true,
+    "noempty":true,
+    "nonew":true,
+    "undef":true,
+    "unused":true,
+    "evil":true,
+    "lastsemic":true,
+    "strict":false,
+    "jquery":false,
+    "browser":false,
+    "node":true,
+    "devel":true,
+    "laxcomma":true,
+    "globals": {
+        "define":true,
+        "require":true,
+        "requirejs":true
+    }
+}

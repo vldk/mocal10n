@@ -30,10 +30,12 @@ By default application is available on [http://localhost:3000/][3] (can be chang
  * authorization
      * ~~by email only (done)~~
      * ~~hardcoded passwords (temporary) (done)~~
+     * redirect to prev. page
      * roles? 
      * online users count (by socket.io)
  * navigation (with direct links)
  * socket.io:
+     * for Backbone.sync
      * for live-update 
      * for notifications
  * cmd line support

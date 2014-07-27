@@ -15,5 +15,5 @@ define(function (require) {
             name:'',
             is_common: false
         }
-    })
+    });
 });

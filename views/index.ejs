@@ -21,7 +21,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="/">WebTranslate tool</a>
+                  <a class="navbar-brand" href="/#ns-list">WebTranslate tool</a>
               </div>
               <div class="navbar-collapse collapse">
 
@@ -31,14 +31,14 @@
                   </ul>-->
                   <% if (user) { %>
                   <ul class="nav navbar-nav navbar-right">
-                      <li><a href="/logout">Logout, <%=user.username%></a></li>
+                      <li><a href="/logout">Logout, <%= user.username %></a></li>
                   </ul>
                   <% }%>
               </div>
           </nav>
           <!--div class="alert" ng-class="alertType" ng-cloak ng-show="alertMessage">{{alertMessage}}</div-->
       </div>
-      <div class="wrapper" id="#appContent">
+      <div class="wrapper" id="appContent">
 
       </div>
   </div>

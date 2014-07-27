@@ -1,11 +1,30 @@
 #!/usr/bin/env node
 var debug = require('debug')('mocal10n');
 var app = require('../server');
+var api = require('../routes/api');
 var config = require('../config').options;
 
 // config
 app.set('port', process.env.PORT || config.DEFAULT_PORT);
 
+
 var server = app.listen(app.get('port'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
+
+var io = require('socket.io').listen(server);
+
+var currentClientNS = io.of('/api');
+currentClientNS.on('connection', function(socket){
+    console.log('someone connected');
+
+    api.setSocket(socket, io);
+
+    /*socket.on('groups:read', function(data, fn){
+        console.info('groups read',data, fn);
+
+    });*/
+});
+
+//nsp.emit('hi', 'everyone!');
+
