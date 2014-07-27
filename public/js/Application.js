@@ -5,8 +5,6 @@ define(function (require) {
     var Backbone = require('backbone');
 
 
-    var socket = require('./socket');
-
     var Groups = require('./collections/Groups');
     var groups = new Groups();
 
@@ -26,6 +24,7 @@ define(function (require) {
         initialize: function(){
             Backbone.history.start(/*{pushState: true}*/);
         },
+        init: function(){},
         defaultRoute: function(fragment, params){
             console.warn('Note: used default route "%s" with params: %o', fragment, params);
             this.showNamespacesList();

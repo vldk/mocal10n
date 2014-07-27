@@ -2,6 +2,7 @@
 define(function (require) {
     "use strict";
 
+    var _ = require('underscore');
 
     /** @type {Backbone} */
     var Backbone = require('backbone');
@@ -54,7 +55,7 @@ define(function (require) {
             params.data = params.attrs || model.toJSON(options) || {};
         }
 
-        if (params.patch === true && params.data.id == null && model) {
+        if (params.patch === true && params.data.id === null && model) {
             params.data.id = model.id;
         }
 

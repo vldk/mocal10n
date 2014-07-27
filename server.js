@@ -51,6 +51,8 @@ app.use(function(req, res, next) {
     next(err);
 });
 
+//console.info(app.get('env'));
+
 /// error handlers
 
 // development error handler

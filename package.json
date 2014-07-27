@@ -19,6 +19,9 @@
     "socket.io": "~1.0.6"
   },
   "devDependencies": {
-    "stylus": "~0.47.3"
+    "stylus": "~0.47.3",
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-requirejs": "~0.4.4"
   }
 }

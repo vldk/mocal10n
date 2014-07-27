@@ -6,6 +6,7 @@ var config = require('../config').options;
 
 // config
 app.set('port', process.env.PORT || config.DEFAULT_PORT);
+//app.set('env', process.env.NODE_ENV || config.env);
 
 
 var server = app.listen(app.get('port'), function() {

@@ -6,9 +6,10 @@ function ensureAuthenticated(req, res, next) {
     res.redirect('/login');
 }
 
+
 /* GET home page. */
 router.get('/', ensureAuthenticated, function(req, res) {
-  res.render('index', { user: req.user });
+  res.render('index', { user: req.user, isDev: false} );
 });
 
 module.exports = router;

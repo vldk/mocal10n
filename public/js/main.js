@@ -11,11 +11,11 @@ require.config({
         }
     },
     paths: {
-        bootstrap: '/bootstrap/js/bootstrap',
+        bootstrap: '../bootstrap/js/bootstrap',
         jquery: 'lib/jquery',
         backbone: 'lib/backbone',
         underscore: 'lib/underscore',
-        socketIO: '/socket.io/socket.io',
+        socketIO: '/socket.io/socket.io',//'../../node_modules/socket.io/node_modules/socket.io-client/socket.io',
         json2: 'lib/json2' //IE8 support
     },
     deps: [
@@ -29,6 +29,7 @@ require.config({
 
         $(document).ready(function(){
             var app = new Application();
+            app.init();
         });
     }
 });
