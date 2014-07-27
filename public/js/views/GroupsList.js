@@ -14,9 +14,10 @@ define(function (require) {
         initialize: function (groups){
             BaseView.prototype.initialize.call(this);
             this.groups = groups;
+            this.groups.bind('reset', this.render, this);
         },
         render: function(){
-            this.groups.fetch();
+
             BaseView.prototype.render.call(this, { groups: this.groups.toJSON() });
         }
     });

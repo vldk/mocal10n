@@ -13,11 +13,12 @@ define(function (require) {
 
     if(!socket){
         socket = socketIO.connect('/api');
-        console.info('socket created');
     }
 
 
     /**
+     * https://github.com/logicalparadox/backbone.iobind
+     *
      * # Backbone.sync
      *
      * Replaces default Backbone.sync function with socket.io transport

@@ -13,7 +13,7 @@ define(function (require) {
         model: GroupModel,
         socket: socket,
         initialize: function(){
-            console.log(this.socket);
+            //console.log(this.socket);
         }
     });
 });

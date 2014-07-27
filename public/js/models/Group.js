@@ -7,7 +7,7 @@ define(function (require) {
     /**
      * Group model (same as Namespace) e.g. 'errors.*' or 'game.*'
      *
-     * @class Group
+     * @class GroupModel
      * @extends {Backbone.Model}
      */
     return Backbone.Model.extend({
