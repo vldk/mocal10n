@@ -63,9 +63,9 @@ passport.use(new LocalStrategy({
             findByEmail(username, function(err, user) {
                 if (err) { return done(err); }
                 if (!user) { return done(null, false, { message: 'Unknown user ' + username }); }
-                if (user.passwd != password) { return done(null, false, { message: 'Invalid password' }); }
+                if (user.passwd !== password) { return done(null, false, { message: 'Invalid password' }); }
                 return done(null, user);
-            })
+            });
         });
     }
 ));
@@ -83,7 +83,7 @@ router.post('/', function(req, res, next) {
         if (err) { return next(err) }
         if (!user) {
             req.session.messages =  [info.message];
-            return res.redirect('/login')
+            return res.redirect('/login');
         }
         req.logIn(user, function(err) {
             if (err) { return next(err); }

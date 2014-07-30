@@ -30,7 +30,7 @@ define(function (require) {
             this.showNamespacesList();
         },
         showNamespacesList: function(){
-            //groupListView.render();
+            groupListView.render();
             groups.fetch({reset: true});
         }
     });

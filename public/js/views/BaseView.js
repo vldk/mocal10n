@@ -116,9 +116,9 @@ define(function (require) {
          * @returns {BaseView}
          */
         render: function(templateData, appendToContainer){
-            if(this.rendered){
+            /*if(this.rendered){
                 return this;
-            }
+            }*/
             if(this.template && this.replaceEl){
                 this.$el.html(this.template(templateData));
             }
@@ -136,6 +136,10 @@ define(function (require) {
                 }
 
             }
+            if(this.rendered){
+                this.undelegateEvents();
+            }
+
             this.delegateEvents();
             this.rendered = true;
             return this;

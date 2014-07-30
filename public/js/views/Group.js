@@ -4,5 +4,5 @@ define(function (require) {
     /** @type {Backbone} */
     var Backbone = require('backbone');
 
-    return Backbone.View.extend()
+    return Backbone.View.extend({});
 });

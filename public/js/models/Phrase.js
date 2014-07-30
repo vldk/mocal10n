@@ -21,5 +21,5 @@ define(function (require) {
             value:'',
             verified: false
         }
-    })
+    });
 });

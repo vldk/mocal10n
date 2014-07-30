@@ -1,22 +1,38 @@
+
+/* line 82 : D:\www\mocal10n\public\css\style.styl */
+
+/* line 1 : D:\www\mocal10n\node_modules\stylus\lib\functions\index.styl */
+
+/* line 4 : D:\www\mocal10n\public\css\style.styl */
 body {
   padding: 5px;
 /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+/* line 10 : D:\www\mocal10n\public\css\style.styl */
 form.ns-edit {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+/* line 16 : D:\www\mocal10n\public\css\style.styl */
 .wrapper {
   width: auto;
 }
+
+/* line 21 : D:\www\mocal10n\public\css\style.styl */
 /* Sticky footer styles
 -------------------------------------------------- */
+
+/* line 23 : D:\www\mocal10n\public\css\style.styl */
 html {
   position: relative;
   min-height: 100%;
 }
+
+/* line 28 : D:\www\mocal10n\public\css\style.styl */
 .footer {
   position: absolute;
   bottom: 0;
@@ -25,34 +41,58 @@ html {
   height: 30px;
   background-color: #f5f5f5;
 }
+
+/* line 38 : D:\www\mocal10n\public\css\style.styl */
 .form-login {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
 }
+
+/* line 43 : D:\www\mocal10n\public\css\style.styl */
 .form-login .input-group {
   margin-bottom: 15px;
 }
+
+/* line 48 : D:\www\mocal10n\public\css\style.styl */
 .register-info {
   border-top: 1px solid #888;
   padding-top: 15px;
   font-size: 85%;
 }
+
+/* line 54 : D:\www\mocal10n\public\css\style.styl */
+
+/* line 55 : D:\www\mocal10n\public\css\style.styl */
 .list-group-item .download-link {
   float: right;
 }
+
+/* line 58 : D:\www\mocal10n\public\css\style.styl */
 .list-group-item .label {
   margin-right: 5px;
 }
+
+/* line 63 : D:\www\mocal10n\public\css\style.styl */
+
+/* line 64 : D:\www\mocal10n\public\css\style.styl */
 .phrases-panel .panel-heading {
   cursor: pointer;
 }
+
+/* line 68 : D:\www\mocal10n\public\css\style.styl */
+
+/* line 69 : D:\www\mocal10n\public\css\style.styl */
 .phrases-table td {
   width: 35%;
 }
+
+/* line 71 : D:\www\mocal10n\public\css\style.styl */
 .phrases-table td:nth-child(1) {
   width: 15%;
 }
+
+/* line 77 : D:\www\mocal10n\public\css\style.styl */
 /*.loader {
   display:block;
   position:absolute;
