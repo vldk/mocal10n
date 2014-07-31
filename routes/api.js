@@ -1,37 +1,53 @@
+/**
+ *
+ * @type {exports}
+ * @property Group
+ */
+var db = require('./../models');
 
-
-function Router(){
+function SocketRouter(){
     /**
      * @type {Socket}
      */
     this.socket = null;
 }
 
-Router.prototype.setSocket = function(socket){
-    this.socket = socket;
 
-    this.socket
-        .on('groups:read', function(data, fn){
-            fn(null, [/* 0 */
-                {
-                    "name" : "errors",
-                    "_id" : "53d3cb63ae015e4417e469f0",
-                    "is_common" : true,
-                    "__v" : 0
-                },
 
-                /* 1 */
-                {
-                    "name" : "mfw",
-                    "_id" : "53d3cb6aae015e4417e469f2",
-                    "is_common" : false,
-                    "__v" : 0
-                }]);
-        })
-    ;
+SocketRouter.prototype = {
+    setSocket: function(socket){
+        this.socket = socket;
+
+        this.socket
+            .on('groups:read', function(input, fn){
+                console.log('groups:read');
+                db.Group.findAll().done(function(err, rows){
+                    fn(err, rows);
+                });
+                /*fn(null, [
+                    {
+                        "id" : "1",
+                        "name" : "errors",
+                        "is_common" : true
+                    },
+
+                    {
+                        "id" : "2",
+                        "name" : "megafortunewheel",
+                        "is_common" : false
+                    }
+                ]);*/
+            })
+            .on('groups:delete', function(data, fn){
+                console.log('groups:delete', data.id);
+                var err = null;
+                fn(err);
+            })
+        ;
+    }
 };
 
 
 
-module.exports = new Router();
+module.exports = new SocketRouter();
 

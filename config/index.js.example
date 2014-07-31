@@ -1,12 +1,22 @@
+var path = require('path');
+
 module.exports = {
     options: {
-        DEFAULT_PORT:3000,
-        mongoUri:"mongodb://localhost:27017/mocai18n"
+        DEFAULT_PORT:3000
+        , env: 'production'//by default is development
+    },
+    db: {
+        dbName: 'mocadb'
+        , driver: 'sqlite'//or postgres
+        , user: 'wwwDBUser'
+        , pass: '1q2w3e'
+        , path: path.join(__dirname, 'test1.sqlite')//path from this folder (./config)
+        , port: '5432' // for postgres
     },
     users: [
-        { username: "Guest", passwd: "", email: '', type: "guest"}
+        //{ username: "Guest", passwd: "", email: '', type: "guest"}
         , { username: "Odmin", passwd: "123321", email: "change@me.com", type: "admin"}
         , { username: "Test", passwd: "123123", email: "test@win-interactive.com" }
-        , { username: "Test", passwd: "123123", email: "test@win-interactive.com" }
+        , { username: "Test2", passwd: "123123", email: "test2@win-interactive.com" }
     ]
 };

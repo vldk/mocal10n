@@ -51,9 +51,29 @@ html {
   font-size:85%
 }
 
+
+/*.groups-list-wrapper {
+  .list-group-item {
+    cursor: pointer;
+  }
+}*/
+
+.delete-group-link {
+  color: tomato;
+  &:hover {
+    color: red;
+  }
+}
+/*.download-link {
+  color: #5cb85c;
+}*/
+
 .list-group-item {
-  .download-link {
+
+  .download-link, .delete-group-link {
+    cursor:pointer;
     float:right;
+    margin-right: 10px;
   }
   .label {
     margin-right:5px;

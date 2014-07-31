@@ -7,12 +7,16 @@ define(function (require) {
     /** @type {Backbone} */
     var Backbone = require('backbone');
 
-    var socketIO = require('socketIO');
+    var socketIO = require('socket.io');
 
     var socket;
 
     if(!socket){
-        socket = socketIO.connect('/api');
+        socket = socketIO.connect('/api', { reconnectionAttempts : 10 });
+        socket.once('reconnect_failed', function(){
+            alert('Reconnection failed. Page will be reloaded');
+            window.location.reload(true);
+        });
     }
 
 

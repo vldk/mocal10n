@@ -1,0 +1,4 @@
+public/js/main.min.js
+public/js/lib/**
+public/bootstrap/**
+node_modules/**

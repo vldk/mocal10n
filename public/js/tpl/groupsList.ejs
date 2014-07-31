@@ -8,10 +8,14 @@
     <ul class="list-group">
         <li class="dropdown-header">Available next namespaces:</li>
         <% groups.forEach(function(/*GroupModel.defaults*/model){ %>
-        <li class="list-group-item">
+        <li class="list-group-item" data-id="<%=model.id%>">
             <a href="/#namespaces/<%= model._id %>/en"><%= model.name %></a>
-            <a href="javascript:alert('todo download archive')" class="download-link"><i class="glyphicon glyphicon-download"></i> download</a>
-            <span class="label pull-right <%= (model.is_common? 'label-info' : 'label-default') %>"><%= (model.is_common ? 'Common' : 'Game' ) %></span>
+            <a href="javascript:alert('todo download archive')" class="download-link"><i
+                        class="glyphicon glyphicon-download"></i> download</a>
+            <a class="delete-group-link"><i class="glyphicon glyphicon-remove-sign"></i>Delete</a>
+            <span class="label pull-right <%= (model.is_common ? 'label-info' : 'label-default') %>">
+                <%= (model.is_common ? 'Common' : 'Game' ) %>
+            </span>
         </li>
         <% }) %>
     </ul>

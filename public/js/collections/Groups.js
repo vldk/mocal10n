@@ -12,8 +12,12 @@ define(function (require) {
         url: 'groups',
         model: GroupModel,
         socket: socket,
-        initialize: function(){
-            //console.log(this.socket);
+        removeById: function(id){
+            var _model = this.get(id);
+            _model.destroy();
+
+
+            return this;
         }
     });
 });

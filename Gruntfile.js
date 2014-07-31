@@ -5,18 +5,9 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
             options: {
-                jshintrc: true,
-                ignores: ['public/js/main.min.js', 'public/js/lib/**/*.js']
+                jshintrc: true
             },
-            public: {
-                src: [
-                    'routes/**/*.js',
-                    'bin/www',
-                    'server.js',
-                    'public/js/**/*.js'
-                ]
-
-            }
+            all: ['**/*.js']
         },
         requirejs: {
             compile: {
@@ -27,7 +18,7 @@ module.exports = function(grunt) {
                     },
                     name: "main",
                     out: "public/js/main.min.js",
-                    optimizeCss: 'standard',
+                    optimizeCss: 'none',
                     findNestedDependencies: true,
                     removeCombined: true,
                     optimize: 'uglify2',
@@ -71,6 +62,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['stylus','jshint','requirejs']);
+    grunt.registerTask('default', ['stylus','jshint']);
+    grunt.registerTask('build', ['stylus','jshint','requirejs']);
 
 };

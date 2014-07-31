@@ -17,6 +17,7 @@ function findById(id, fn) {
 function findByEmail(username, fn) {
     for (var i = 0, len = users.length; i < len; i++) {
         var user = users[i];
+        if(!user) continue;
         if (user.email === username) {
             user.id = i;
             return fn(null, user);

@@ -1,6 +1,6 @@
 require.config({
     shim:{
-        'socketIO': {
+        'socket.io': {
             exports: 'io'
         },
         'backbone': {
@@ -15,7 +15,7 @@ require.config({
         jquery: 'lib/jquery',
         backbone: 'lib/backbone',
         underscore: 'lib/underscore',
-        socketIO: '/socket.io/socket.io',//'../../node_modules/socket.io/node_modules/socket.io-client/socket.io',
+        'socket.io': '/socket.io/socket.io',//'../../node_modules/socket.io/node_modules/socket.io-client/socket.io',
         json2: 'lib/json2' //IE8 support
     },
     deps: [

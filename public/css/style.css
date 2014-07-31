@@ -1,5 +1,5 @@
 
-/* line 82 : D:\www\mocal10n\public\css\style.styl */
+/* line 102 : D:\www\mocal10n\public\css\style.styl */
 
 /* line 1 : D:\www\mocal10n\node_modules\stylus\lib\functions\index.styl */
 
@@ -61,38 +61,63 @@ html {
   font-size: 85%;
 }
 
-/* line 54 : D:\www\mocal10n\public\css\style.styl */
-
 /* line 55 : D:\www\mocal10n\public\css\style.styl */
-.list-group-item .download-link {
-  float: right;
+/*.groups-list-wrapper {
+  .list-group-item {
+    cursor: pointer;
+  }
+}*/
+
+/* line 61 : D:\www\mocal10n\public\css\style.styl */
+.delete-group-link {
+  color: #ff6347;
 }
 
-/* line 58 : D:\www\mocal10n\public\css\style.styl */
+/* line 63 : D:\www\mocal10n\public\css\style.styl */
+.delete-group-link:hover {
+  color: #f00;
+}
+
+/* line 67 : D:\www\mocal10n\public\css\style.styl */
+/*.download-link {
+  color: #5cb85c;
+}*/
+
+/* line 71 : D:\www\mocal10n\public\css\style.styl */
+
+/* line 73 : D:\www\mocal10n\public\css\style.styl */
+.list-group-item .download-link,
+.list-group-item .delete-group-link {
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+}
+
+/* line 78 : D:\www\mocal10n\public\css\style.styl */
 .list-group-item .label {
   margin-right: 5px;
 }
 
-/* line 63 : D:\www\mocal10n\public\css\style.styl */
+/* line 83 : D:\www\mocal10n\public\css\style.styl */
 
-/* line 64 : D:\www\mocal10n\public\css\style.styl */
+/* line 84 : D:\www\mocal10n\public\css\style.styl */
 .phrases-panel .panel-heading {
   cursor: pointer;
 }
 
-/* line 68 : D:\www\mocal10n\public\css\style.styl */
+/* line 88 : D:\www\mocal10n\public\css\style.styl */
 
-/* line 69 : D:\www\mocal10n\public\css\style.styl */
+/* line 89 : D:\www\mocal10n\public\css\style.styl */
 .phrases-table td {
   width: 35%;
 }
 
-/* line 71 : D:\www\mocal10n\public\css\style.styl */
+/* line 91 : D:\www\mocal10n\public\css\style.styl */
 .phrases-table td:nth-child(1) {
   width: 15%;
 }
 
-/* line 77 : D:\www\mocal10n\public\css\style.styl */
+/* line 97 : D:\www\mocal10n\public\css\style.styl */
 /*.loader {
   display:block;
   position:absolute;

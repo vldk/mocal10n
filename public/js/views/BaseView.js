@@ -144,7 +144,7 @@ define(function (require) {
             this.rendered = true;
             return this;
         },
-
+        /*
         onChangeVisibility: function(){},
 
         changeVisibility: function(isVisible) {
@@ -179,8 +179,8 @@ define(function (require) {
 
             return this;
         },
-
-        close: function(silent){
+        */
+            close: function(silent){
             //this.hide();//TODO: need to review (can break existing logic)
 
             if(!(silent)){
