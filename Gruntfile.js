@@ -14,11 +14,11 @@ module.exports = function(grunt) {
                 options: {
                     mainConfigFile: "public/js/main.js",
                     paths: {
-                        socketIO:'../../node_modules/socket.io/node_modules/socket.io-client/socket.io'
+                        'socket.io':'../../node_modules/socket.io/node_modules/socket.io-client/socket.io'
                     },
                     name: "main",
                     out: "public/js/main.min.js",
-                    optimizeCss: 'none',
+                    optimizeCss: 'standard',
                     findNestedDependencies: true,
                     removeCombined: true,
                     optimize: 'uglify2',

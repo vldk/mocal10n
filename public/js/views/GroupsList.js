@@ -10,30 +10,22 @@ define(function (require) {
      */
     return BaseView.extend({
         templateId: '#groupsList',
-        container: '#appContent',
+        container: '#groups-list-container',
         className: 'groups-list-wrapper',
         events: {
-            'submit .form-inline': 'onFormSubmit',
             'click .delete-group-link': 'onDelete'
         },
         initialize: function (groups){
             BaseView.prototype.initialize.call(this);
             this.groups = groups;
             this.groups.bind('reset add remove', this.render, this);
+
         },
         render: function(){
             BaseView.prototype.render.call(this, { groups: this.groups.toJSON() });
         },
         show: function(){
             this.groups.fetch({reset: true});
-        },
-        /**
-         *
-         * @param {jQuery.Event} $e
-         */
-        onFormSubmit: function($e){
-            $e.preventDefault();
-            alert('OK!');
         },
         /**
          *

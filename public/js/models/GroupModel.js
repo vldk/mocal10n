@@ -7,13 +7,18 @@ define(function (require) {
     /**
      * Group model (same as Namespace) e.g. 'errors.*' or 'game.*'
      *
-     * @class GroupModel
+     * @class FGroupModel
      * @extends {Backbone.Model}
      */
     return Backbone.Model.extend({
         defaults: {
             name:'',
             is_common: false
+        },
+        validate: function(attrs){
+            /*if(attrs.name === ''){
+                return "name can't be empty";
+            }*/
         }
     });
 });

@@ -142,8 +142,10 @@ define(function (require) {
 
             this.delegateEvents();
             this.rendered = true;
+            this.trigger('render');
             return this;
         },
+        afterRender: function(){},
         /*
         onChangeVisibility: function(){},
 
@@ -180,7 +182,7 @@ define(function (require) {
             return this;
         },
         */
-            close: function(silent){
+        close: function(silent){
             //this.hide();//TODO: need to review (can break existing logic)
 
             if(!(silent)){

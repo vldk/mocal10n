@@ -21,27 +21,26 @@ SocketRouter.prototype = {
         this.socket
             .on('groups:read', function(input, fn){
                 console.log('groups:read');
-                db.Group.findAll().done(function(err, rows){
-                    fn(err, rows);
-                });
-                /*fn(null, [
-                    {
-                        "id" : "1",
-                        "name" : "errors",
-                        "is_common" : true
-                    },
-
-                    {
-                        "id" : "2",
-                        "name" : "megafortunewheel",
-                        "is_common" : false
-                    }
-                ]);*/
+                db.Group.findAll().done(fn);
             })
-            .on('groups:delete', function(data, fn){
-                console.log('groups:delete', data.id);
+            .on('groups:create', function(input, fn){
+                console.log('groups:create', input);
+                db.Group.create(input).complete(fn);
+            })
+            .on('groups:update', function(input, fn){
+                console.log('groups:update', input.id);
                 var err = null;
                 fn(err);
+            })
+            .on('groups:delete', function(input, fn){
+                console.log('groups:delete', input.id);
+                db.Group.find(input.id).complete(function(err, model){
+                    if(!err){
+                        model.destroy().complete(fn);
+                        return;
+                    }
+                    fn(err, model);
+                });
             })
         ;
     }

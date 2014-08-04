@@ -9,7 +9,10 @@ module.exports = function(sequelize, /*exports*/DataTypes) {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: 'group_name'
+            unique: 'group_name',
+            validate: {
+                notEmpty: true
+            }
         },
         is_common: {
             type: DataTypes.BOOLEAN,

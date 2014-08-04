@@ -15,8 +15,9 @@ require.config({
         jquery: 'lib/jquery',
         backbone: 'lib/backbone',
         underscore: 'lib/underscore',
-        'socket.io': '/socket.io/socket.io',//'../../node_modules/socket.io/node_modules/socket.io-client/socket.io',
-        json2: 'lib/json2' //IE8 support
+        //'socket.io': 'lib/socket.io.min', //for Backbone Debug-plugin
+        'socket.io': '/socket.io/socket.io',
+        json2: 'lib/json2' //IE8 support ?)
     },
     deps: [
         'jquery',
@@ -27,8 +28,9 @@ require.config({
     callback: function($, Application){
         "use strict";
 
+        var app = new Application();
+
         $(document).ready(function(){
-            var app = new Application();
             app.init();
         });
     }

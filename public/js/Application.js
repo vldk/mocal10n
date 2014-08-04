@@ -7,10 +7,8 @@ define(function (require) {
 
     var Groups = require('./collections/Groups');
     var groups = new Groups();
-
-    var GroupListView = require('./views/GroupsList');
-    var groupListView = new GroupListView(groups);
-
+    var GroupsView = require('./views/GroupsView');
+    var _groupsView = new GroupsView(groups);
 
     /**
      * @class Application
@@ -18,7 +16,9 @@ define(function (require) {
      */
     return Backbone.Router.extend({
         routes: {
-            'namespaces': 'showNamespacesList',
+            '': 'showNamespacesList',
+            'group/:id/:lang':'showGroupByIdAndLand',
+            'get/:id': 'showDownloadGroupDialog',
             '*path': 'defaultRoute'
         },
         initialize: function(){
@@ -30,7 +30,13 @@ define(function (require) {
             this.showNamespacesList();
         },
         showNamespacesList: function(){
-            groupListView.show();
+            _groupsView.render();
+        },
+        showGroupByIdAndLand: function(id, lang){
+
+        },
+        showDownloadGroupDialog: function(id){
+            console.warn('TODO: show download dialog with "merge with common"-option for #', id);
         }
     });
 });
