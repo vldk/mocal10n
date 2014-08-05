@@ -14,11 +14,6 @@ define(function (require) {
         defaults: {
             name:'',
             is_common: false
-        },
-        validate: function(attrs){
-            /*if(attrs.name === ''){
-                return "name can't be empty";
-            }*/
         }
     });
 });

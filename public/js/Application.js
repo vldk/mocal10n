@@ -6,9 +6,12 @@ define(function (require) {
 
 
     var Groups = require('./collections/Groups');
-    var groups = new Groups();
-    var GroupsView = require('./views/GroupsView');
-    var _groupsView = new GroupsView(groups);
+    var GroupsView = require('./views/groups/GroupsView');
+    var _groupsView = new GroupsView(new Groups());
+
+    var PhrasesView = require('./views/PhrasesView');
+
+    var _phrasesView = new PhrasesView();
 
     /**
      * @class Application
@@ -21,19 +24,19 @@ define(function (require) {
             'get/:id': 'showDownloadGroupDialog',
             '*path': 'defaultRoute'
         },
-        initialize: function(){
+        init: function(){
             Backbone.history.start(/*{pushState: true}*/);
         },
-        init: function(){},
         defaultRoute: function(fragment, params){
             console.warn('Note: used default route "%s" with params: %o', fragment, params);
             this.showNamespacesList();
         },
         showNamespacesList: function(){
+            _phrasesView.cleanUp();
             _groupsView.render();
         },
-        showGroupByIdAndLand: function(id, lang){
-
+        showGroupByIdAndLand: function(groupId, lang){
+            _phrasesView.show(groupId, lang);
         },
         showDownloadGroupDialog: function(id){
             console.warn('TODO: show download dialog with "merge with common"-option for #', id);

@@ -2,7 +2,7 @@ define(function (require) {
     "use strict";
 
     /** @type {BaseView} */
-    var BaseView = require('./BaseView');
+    var BaseView = require('./../BaseView');
 
     /**
      * Simple form for editing group

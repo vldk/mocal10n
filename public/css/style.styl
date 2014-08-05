@@ -52,11 +52,15 @@ html {
 }
 
 
-/*.groups-list-wrapper {
-  .list-group-item {
-    cursor: pointer;
+.help-block {
+  display: none;
+}
+
+.has-error {
+  .help-block {
+    display:block;
   }
-}*/
+}
 
 .delete-group-link {
   color: tomato;
@@ -64,9 +68,7 @@ html {
     color: red;
   }
 }
-/*.download-link {
-  color: #5cb85c;
-}*/
+
 
 .list-group-item {
 
@@ -100,3 +102,10 @@ html {
   top:0; bottom:0; left:0; right:0;
   background:rgba(0,0,0,0.5);
 }*/
+
+#group-options {
+  display: none;
+  &.visible {
+    display: block;
+  }
+}

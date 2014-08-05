@@ -15,8 +15,8 @@ require.config({
         jquery: 'lib/jquery',
         backbone: 'lib/backbone',
         underscore: 'lib/underscore',
-        //'socket.io': 'lib/socket.io.min', //for Backbone Debug-plugin
-        'socket.io': '/socket.io/socket.io',
+        'socket.io': 'lib/socket.io.min', //for Backbone Debug-plugin
+        //'socket.io': '/socket.io/socket.io',
         json2: 'lib/json2' //IE8 support ?)
     },
     deps: [

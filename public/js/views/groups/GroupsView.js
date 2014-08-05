@@ -3,7 +3,7 @@ define(function (require) {
 
 
     /** @type {BaseView} */
-    var BaseView = require('./BaseView');
+    var BaseView = require('./../BaseView');
 
 
     /** @type {_} */

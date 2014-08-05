@@ -2,7 +2,7 @@ define(function (require) {
     "use strict";
 
     /** @type {BaseView} */
-    var BaseView = require('./BaseView');
+    var BaseView = require('./../BaseView');
 
     /**
      * @class GroupsListView
@@ -18,14 +18,19 @@ define(function (require) {
         initialize: function (groups){
             BaseView.prototype.initialize.call(this);
             this.groups = groups;
-            this.groups.bind('reset add remove', this.render, this);
+            this.groups.bind('add remove change', this.render, this);
 
         },
         render: function(){
             BaseView.prototype.render.call(this, { groups: this.groups.toJSON() });
         },
         show: function(){
-            this.groups.fetch({reset: true});
+            var _this = this;
+            this.groups
+                .fetch({silent: true})
+                .done(function(){
+                    _this.render();
+                });
         },
         /**
          *
