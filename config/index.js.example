@@ -3,15 +3,15 @@ var path = require('path');
 module.exports = {
     options: {
         DEFAULT_PORT:3000
-        , env: 'production'//by default is development
+        , env: 'production'//by default is development. Todo: currently this option does not work
     },
     db: {
         dbName: 'mocadb'
         , driver: 'sqlite'//or postgres
-        , user: 'wwwDBUser'
-        , pass: '1q2w3e'
-        , path: path.join(__dirname, 'test1.sqlite')//path from this folder (./config)
-        , port: '5432' // for postgres
+        , path: path.join(__dirname, 'moca.sqlite3')//path from this folder (./config) to db-file. Only need for SQLite
+        , user: 'wwwDBUser'//for postgres
+        , pass: '1q2w3e' //for postgres
+        , port: '5432' //for postgres
     },
     users: [
         //{ username: "Guest", passwd: "", email: '', type: "guest"}

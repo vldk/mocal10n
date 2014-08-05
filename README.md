@@ -1,4 +1,4 @@
-Utility for editing localisation phrases for Mobile Casino Projects
+Utility for editing localization phrases for Mobile Casino Projects
 =========
 
 Version
@@ -16,35 +16,43 @@ npm install
 Also need perform next steps:
 
  1. Copy config/index.js.example to config/index.js and set up needed params (Note: index.js in svn:ignores) 
- 2. [Download][1] and [install][2] MongoDB server and create there database 'mocai18n' 
+ 2. Run web-server   
 
 Run server:
 ```sh
 node ./bin/www
 ```
+By default application is available on [http://localhost:3000/](http://localhost:3000/ (can be changed in config/index.js)
 
-By default application is available on [http://localhost:3000/][3] (can be changed in config/index.js)
+Development
+---
+Grunt tasks are available.  
+For db-management can be used [Sqliteman](http://sqliteman.yarpen.cz/), [SQLiteManager](http://www.sqlabs.com/), [SQLiteBrowser](http://sourceforge.net/projects/sqlitebrowser/) or other which you are prefer
+
 
 
 #TODO:
  * authorization
      * ~~by email only (done)~~
-     * ~~hardcoded passwords (temporary) (done)~~
-     * redirect to prev. page
+     * ~~hardcoded passwords (done)~~
+     * refactor passport strategy (currently used simple MemoryStore with sessions)
+     * redirect to prev. page (before authorization)
      * roles? 
-     * online users count (by socket.io)
+     * online users count (by socket.io) ?
  * navigation (with direct links)
+     * ~~~to groups list (default route) (almost done)~~~     
+     * to group with specific lang ('en' by default) /#group/6/en
+ * models editing:
+     * ~~~Group create~~~ 
+     * ~~~Group delete~~~ 
+     * Group rename
+     * Phrases
  * socket.io:
-     * for Backbone.sync
+     * ~~~for Backbone.sync (done partly)~~~
      * for live-update 
-     * for notifications
+     * for notifications 
  * cmd line support
      * import to DB by folder with json-filese
      * export (?)
      * xsl (xslt) converter
  
-
-
-[1]: http://www.mongodb.org/downloads
-[2]: http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/#manually-create-a-windows-service-for-mongodb
-[3]: http://localhost:3000/
