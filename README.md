@@ -13,12 +13,12 @@ To install dependencies:
 npm install
 ```
 
-Also, check if follow dependencies are insalled:
+Check if follow dependencies are installed:
 
  * node.js  >= v0.10
  * in case of trouble with installing sqlite3 on windows [read this](https://github.com/mapbox/node-sqlite3/wiki/Building-on-Windows)  
 
-Also need perform next steps:
+Then need perform next steps:
 
  1. Copy config/index.js.example to config/index.js and set up needed params (Note: index.js in svn:ignores) 
  2. Run web-server   
@@ -61,4 +61,3 @@ For db-management can be used [Sqliteman](http://sqliteman.yarpen.cz/), [SQLiteM
      * import to DB by folder with json-filese
      * export (?)
      * xsl (xslt) converter
- 
