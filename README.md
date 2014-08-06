@@ -13,6 +13,11 @@ To install dependencies:
 npm install
 ```
 
+Also, check if follow dependencies are insalled:
+
+ * node.js  >= v0.10
+ * in case of trouble with installing sqlite3 on windows [read this](https://github.com/mapbox/node-sqlite3/wiki/Building-on-Windows)  
+
 Also need perform next steps:
 
  1. Copy config/index.js.example to config/index.js and set up needed params (Note: index.js in svn:ignores) 
@@ -22,7 +27,8 @@ Run server:
 ```sh
 node ./bin/www
 ```
-By default application is available on [http://localhost:3000/](http://localhost:3000/ (can be changed in config/index.js)
+
+By default application is available on [http://localhost:3000/](http://localhost:3000/) (can be changed in config/index.js)
 
 Development
 ---
