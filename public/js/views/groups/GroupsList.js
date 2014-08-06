@@ -15,20 +15,19 @@ define(function (require) {
         events: {
             'click .delete-group-link': 'onDelete'
         },
-        initialize: function (groups){
+        initialize: function (){
             BaseView.prototype.initialize.call(this);
-            this.groups = groups;
-            this.groups.bind('add remove change', this.render, this);
+            this.collection.bind('add remove change', this.render, this);
 
         },
         render: function(){
-            BaseView.prototype.render.call(this, { groups: this.groups.toJSON() });
+            BaseView.prototype.render.call(this, { groups: this.collection.toJSON() });
         },
         show: function(){
             BaseView.prototype.show.call(this);
 
             var _this = this;
-            this.groups
+            this.collection
                 .fetch({silent: true})
                 .done(function(){
                     _this.render();

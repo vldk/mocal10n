@@ -20,8 +20,16 @@ SocketRouter.prototype = {
 
         this.socket
             .on('groups:read', function(input, fn){
-                console.log('groups:read');
-                db.Group.findAll().done(fn);
+                console.log('groups:read', input);
+                if(input.id){
+                    db.Group.find(input.id).complete(function(err, model) {
+                        fn(err, [model]);
+                    });
+                }
+                else {
+                    db.Group.findAll().done(fn);
+                }
+
             })
             .on('groups:create', function(input, fn){
                 console.log('groups:create', input);

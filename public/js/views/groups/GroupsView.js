@@ -27,9 +27,9 @@ define(function (require) {
         list: null,
         /** @type {GroupEditView}*/
         form: null,
-        initialize: function(groups){
-            this.list = new GroupListView(groups);
-            this.form = new GroupForm(groups);
+        initialize: function(params){
+            this.list = new GroupListView(params);
+            this.form = new GroupForm(params);
         },
         show: function(){
             if(!this.rendered){

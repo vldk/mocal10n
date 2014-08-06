@@ -46,15 +46,16 @@ For db-management can be used [Sqliteman](http://sqliteman.yarpen.cz/), [SQLiteM
      * roles? 
      * online users count (by socket.io) ?
  * navigation (with direct links)
-     * ~~~to groups list (default route) (almost done)~~~     
+     * ~~to groups list (default route) (almost done)~~     
      * to group with specific lang ('en' by default) /#group/6/en
+ * Notification system (with [stylized alerts](http://getbootstrap.com/components/#alerts))
  * models editing:
-     * ~~~Group create~~~ 
-     * ~~~Group delete~~~ 
+     * ~~Group create~~ 
+     * ~~Group delete~~ 
      * Group rename
      * Phrases
  * socket.io:
-     * ~~~for Backbone.sync (done partly)~~~
+     * ~~for Backbone.sync (done partly)~~
      * for live-update 
      * for notifications 
  * cmd line support

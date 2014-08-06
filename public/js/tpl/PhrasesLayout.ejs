@@ -1,13 +1,13 @@
 <script type="text/x-handlebars-template" id="phrasesLayout">
     <h3>
-        Current group (project): <b><%= group.name %></b>
+        Current group (project): "<b><%= group.name %></b>"
         <button id="group-options-toggle" class="btn"><i class="glyphicon glyphicon-cog"></i> Options</button>
     </h3>
     <div id="group-options">
         <button class="btn"><i class="glyphicon glyphicon-download-alt"></i> As Zip</button>
         <button class="btn"><i class="glyphicon glyphicon-import"></i> Load EN template</button>
         <hr/>
-        here will be edit form
+        <div id="edit-group-container"></div>
     </div>
     <hr/>
 

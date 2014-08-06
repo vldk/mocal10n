@@ -5,9 +5,9 @@ define(function (require) {
     var Backbone = require('backbone');
 
     /**
-     * One field model
+     * Frontend Phrase Model of one field
      *
-     * @class Phrase
+     * @class FPhraseModel
      * @extends {Backbone.Model}
      * @property {String} ns
      * @property {String} parent

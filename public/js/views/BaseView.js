@@ -158,29 +158,27 @@ define(function (require) {
             return this;
         },
         close: function(){
-
-
             if(this.rendered){
                 this.$container.empty();
-                /*this.unbind();
-                this.undelegateEvents();*/
             }
 
             this.visible = false;
 
-            console.log('close:', this.templateId);
-            /*if(!(silent)){
-                this.trigger('onClose');
-                this.unbind();
-            }
+            return this;
+        },
+        remove: function(){
+
+            this.close();
+
+            this.unbind();
             this.undelegateEvents();
             this.$el.empty();
-            this.remove();
+            Backbone.View.prototype.remove.call(this);
             this.rendered = false;
 
             delete this.$container;
             delete this.$el;
-            delete this.el;*/
+            delete this.el;
 
             return this;
         }

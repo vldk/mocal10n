@@ -25,12 +25,6 @@ define(function (require) {
         $formMsg:null,
         $nameInp: null,
         $isCommonInp: null,
-
-        initialize: function (groups){
-            BaseView.prototype.initialize.call(this);
-            this.collection = groups;
-            //this.collection.on('add', this.onCollectionAdd, this);
-        },
         render: function(model){
 
             if(model){
@@ -54,7 +48,7 @@ define(function (require) {
         },
         show: function(model){
             if(!this.rendered){
-                this.render(model);
+                this.render(model || this.model);
             }
             BaseView.prototype.show.call(this);
         },

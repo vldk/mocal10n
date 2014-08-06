@@ -20,26 +20,55 @@ define(function (require) {
             'click #group-options-toggle': 'toggleGroupOptions'
         },
         $groupOpts: null,
+
+        /** @type {FGroupModel}*/
+        model: null,
+
         editGroupForm: null,
 
-        render: function(){
+        initialize: function(){
+            BaseView.prototype.initialize.call(this);
+            this.editGroupForm = new GroupForm({model: this.model});
+        },
+
+        render: function(lang){
             BaseView.prototype.render.call(this, {
-                group: {name:''},
-                lang: 'en'
+                group: this.model.toJSON(),
+                lang: lang
             });
+            this.editGroupForm.$container = this.$('#edit-group-container');
+            this.editGroupForm.show();
+
             if(!this.$groupOpts){
                 this.$groupOpts = this.$('#group-options');
             }
         },
-        show: function(groupId, lang){
+        show: function(lang){
             if(!this.rendered){
-                this.render();
+                this.render(lang || 'en');
             }
+
             BaseView.prototype.show.call(this);
-            console.log(groupId, lang);
+
+            return this;
+        },
+        switchToLang: function(lang){
+            this.show(lang);
+
+            return this;
         },
         toggleGroupOptions: function(){
             this.$groupOpts.toggleClass('visible');
+        },
+        remove: function(){
+
+            this.editGroupForm.remove();
+            this.editGroupForm = null;
+
+            delete this.$groupOpts;
+
+            BaseView.prototype.remove.call(this);
+
         }
         /*,close: function(){
             this.rendered = false;
