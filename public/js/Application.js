@@ -32,10 +32,11 @@ define(function (require) {
             this.showNamespacesList();
         },
         showNamespacesList: function(){
-            _phrasesView.cleanUp();
-            _groupsView.render();
+            _phrasesView.close();
+            _groupsView.show();
         },
         showGroupByIdAndLand: function(groupId, lang){
+            _groupsView.close();
             _phrasesView.show(groupId, lang);
         },
         showDownloadGroupDialog: function(id){

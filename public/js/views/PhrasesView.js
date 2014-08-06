@@ -4,6 +4,11 @@ define(function (require) {
     /** @type {BaseView} */
     var BaseView = require('./BaseView');
 
+
+    /** @type {GroupForm} */
+    var GroupForm = require('./groups/GroupForm');
+
+
     /**
      * @class PhrasesView
      * @extends {BaseView}
@@ -15,6 +20,8 @@ define(function (require) {
             'click #group-options-toggle': 'toggleGroupOptions'
         },
         $groupOpts: null,
+        editGroupForm: null,
+
         render: function(){
             BaseView.prototype.render.call(this, {
                 group: {name:''},
@@ -28,14 +35,15 @@ define(function (require) {
             if(!this.rendered){
                 this.render();
             }
+            BaseView.prototype.show.call(this);
             console.log(groupId, lang);
         },
         toggleGroupOptions: function(){
             this.$groupOpts.toggleClass('visible');
-        },
-        cleanUp: function(){
+        }
+        /*,close: function(){
             this.rendered = false;
             console.warn('TODO: cleaning up all child views when getting back to groups list');
-        }
+        }*/
     });
 });

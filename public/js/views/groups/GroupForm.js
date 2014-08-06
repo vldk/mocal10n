@@ -29,7 +29,7 @@ define(function (require) {
         initialize: function (groups){
             BaseView.prototype.initialize.call(this);
             this.collection = groups;
-            this.collection.on('add', this.onCollectionAdd, this);
+            //this.collection.on('add', this.onCollectionAdd, this);
         },
         render: function(model){
 
@@ -52,6 +52,12 @@ define(function (require) {
                 this.$isCommonInp = this.$('#is-common-group');
             }
         },
+        show: function(model){
+            if(!this.rendered){
+                this.render(model);
+            }
+            BaseView.prototype.show.call(this);
+        },
         onCollectionAdd: function(){
             this.onInputChange().resetInputs();
 
@@ -72,19 +78,30 @@ define(function (require) {
          */
         onFormSubmit: function($e){
             $e.preventDefault();
-            var _data = {
-                name: $.trim(this.$nameInp.val()),
-                is_common: this.$isCommonInp.prop('checked')
-            };
+
+            var _this = this,
+                _data = {
+                    name: $.trim(this.$nameInp.val()),
+                    is_common: this.$isCommonInp.prop('checked')
+                },
+                _callbacks = {
+                    success: function(){
+                        _this.model = null;
+                        _this.onCollectionAdd();
+                    },
+                    error: function(model, err){
+                        _this.model = null;
+                        _this.onFormErr(model, err);
+                    }
+                }
+                ;
 
 
             if(!this.model){
-                this.model = this.collection.create(_data,{wait: true});
-                this.model.once('error', function(model, err){
-                    this.model = null;
-                    this.onFormErr(model, err);
-                }, this);
-
+                this.model = this.collection.create(
+                    _data,
+                    _.extend({wait: true}, _callbacks)
+                );
             }
             else {
                 this.model.save(_data);

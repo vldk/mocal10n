@@ -31,16 +31,16 @@ define(function (require) {
             this.list = new GroupListView(groups);
             this.form = new GroupForm(groups);
         },
-        render: function(){
-            if(this.rendered){
-                //refresh groups list
-                this.list.show();
-                return;
+        show: function(){
+            if(!this.rendered){
+                this.render();
             }
+            BaseView.prototype.show.apply(this);
 
             this.list.show();
-            BaseView.prototype.render.call(this);
-            this.form.render();
+            this.form.show();
+
+            return this;
         }
     });
 });

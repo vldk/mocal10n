@@ -91,8 +91,6 @@ define(function (require) {
 
         rendered: false,
 
-        replaceEl: true,//if false, use exist value of $el
-
         visible: false,
         /**
          * Invoked when the view is created
@@ -104,7 +102,8 @@ define(function (require) {
             if(this.templateId){
                 this.template = TemplateCache.get(this.templateId);
             }
-            this.on('change:visibility', this.onChangeVisibility);
+            //this.on('change:visibility', this.onChangeVisibility);
+            //this.on('render', this.afterRender);
         },
         /**
          * Render view
@@ -115,77 +114,62 @@ define(function (require) {
          * @param {boolean=} appendToContainer If false (by default): content for $container will be replaced
          * @returns {BaseView}
          */
-        render: function(templateData, appendToContainer){
-            /*if(this.rendered){
-                return this;
-            }*/
-            if(this.template && this.replaceEl){
+        render: function(templateData){
+
+            if(this.template){
                 this.$el.html(this.template(templateData));
             }
+            else {
+                throw new Error('Template not found');
+            }
+
+            this.rendered = true;
+            this.trigger('render');
+
+            return this;
+        },
+        /**
+         * @abstract
+         */
+        afterRender: function(){},
+        /**
+         * @abstract
+         */
+        onChangeVisibility: function(){},
+        show: function(){
+
             if (typeof this.container === "string" && !this.$container){
                 this.$container = $(this.container);
             }
+
             if(this.$container instanceof jQuery){
                 if(!this.$container.length){
-                    console.warn('$container %o is empty', this.$container);
+                    throw new Error('$container %o is empty'+this.$container.selector);
                 }
-                if (!!(appendToContainer)){
-                    this.$container.append(this.$el);
-                } else {
+
+                if(!this.visible){
                     this.$container.html(this.$el);
+                    this.visible = true;
                 }
-
+                //note: undelegateEvents will be called automatically
+                this.delegateEvents();
             }
+
+            return this;
+        },
+        close: function(){
+
+
             if(this.rendered){
-                this.undelegateEvents();
+                this.$container.empty();
+                /*this.unbind();
+                this.undelegateEvents();*/
             }
 
-            this.delegateEvents();
-            this.rendered = true;
-            this.trigger('render');
-            return this;
-        },
-        afterRender: function(){},
-        /*
-        onChangeVisibility: function(){},
+            this.visible = false;
 
-        changeVisibility: function(isVisible) {
-            if (isVisible){
-                this.$container.addClass('visible');
-                this.trigger('on:show');
-            } else {
-                this.$container.removeClass('visible');
-                this.trigger('on:hide');
-            }
-
-            this.visible = isVisible;
-            this.trigger('change:visibility',isVisible);
-
-            return this;
-        },
-
-        show : function(){
-            if(!this.rendered){
-                throw new Error('The view is not rendered ');
-            }
-            this.changeVisibility(true);
-
-            return this;
-        },
-
-        hide : function(){
-            if(!this.rendered){
-                throw new Error('The view is not rendered ');
-            }
-            this.changeVisibility(false);
-
-            return this;
-        },
-        */
-        close: function(silent){
-            //this.hide();//TODO: need to review (can break existing logic)
-
-            if(!(silent)){
+            console.log('close:', this.templateId);
+            /*if(!(silent)){
                 this.trigger('onClose');
                 this.unbind();
             }
@@ -196,7 +180,7 @@ define(function (require) {
 
             delete this.$container;
             delete this.$el;
-            delete this.el;
+            delete this.el;*/
 
             return this;
         }

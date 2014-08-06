@@ -25,6 +25,8 @@ define(function (require) {
             BaseView.prototype.render.call(this, { groups: this.groups.toJSON() });
         },
         show: function(){
+            BaseView.prototype.show.call(this);
+
             var _this = this;
             this.groups
                 .fetch({silent: true})

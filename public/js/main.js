@@ -1,4 +1,5 @@
 require.config({
+    waitSeconds: 30,
     shim:{
         'socket.io': {
             exports: 'io'
