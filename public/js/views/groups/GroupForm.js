@@ -8,6 +8,10 @@ define(function (require) {
     var _ = require('underscore');
 
 
+    /** @type {Registry} */
+    var reg = require('./../../Registry');
+
+
     /**
      * @class GroupEditView
      * @extends {BaseView}
@@ -78,7 +82,8 @@ define(function (require) {
                     name: $.trim(this.$nameInp.val()),
                     is_common: this.$isCommonInp.prop('checked')
                 },
-                _callbacks = {
+                _options = {
+                    wait: true,
                     success: function(){
                         _this.model = null;
                         _this.onCollectionAdd();
@@ -94,14 +99,25 @@ define(function (require) {
             if(!this.model){
                 this.model = this.collection.create(
                     _data,
-                    _.extend({wait: true}, _callbacks)
+                    _options
                 );
             }
             else {
-                this.model.save(_data);
+                this.model.save(
+                    _data,
+                    _.extend(_options, {
+                        success: function(){
+                            reg.get('alerts').ok('Changes saved');
+                        },
+                        error: function(model, err){
+                            _this.onFormErr(model, err);
+                        }
+                    })
+                );
             }
         },
         onFormErr: function(model, err){
+            console.warn(model, err);
             this.$form.addClass('has-error');
             var _msg = [];
             _.each(err, function(errItem, errKey){

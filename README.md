@@ -48,11 +48,11 @@ For db-management can be used [Sqliteman](http://sqliteman.yarpen.cz/), [SQLiteM
  * navigation (with direct links)
      * ~~to groups list (default route) (almost done)~~     
      * to group with specific lang ('en' by default) /#group/6/en
- * Notification system (with [stylized alerts](http://getbootstrap.com/components/#alerts))
+ * ~~Notification system (with [stylized alerts](http://getbootstrap.com/components/#alerts))~~
  * models editing:
      * ~~Group create~~ 
      * ~~Group delete~~ 
-     * Group rename
+     * ~~Group rename~~
      * Phrases
  * socket.io:
      * ~~for Backbone.sync (done partly)~~

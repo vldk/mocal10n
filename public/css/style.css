@@ -1,5 +1,5 @@
 
-/* line 111 : D:\www\mocal10n\public\css\style.styl */
+/* line 120 : D:\www\mocal10n\public\css\style.styl */
 
 /* line 1 : D:\www\mocal10n\node_modules\stylus\lib\functions\index.styl */
 
@@ -67,25 +67,35 @@ html {
 }
 
 /* line 59 : D:\www\mocal10n\public\css\style.styl */
+#app-alerts {
+  width: auto;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  max-width: 40%;
+  margin-right: 15px;
+}
 
-/* line 60 : D:\www\mocal10n\public\css\style.styl */
+/* line 68 : D:\www\mocal10n\public\css\style.styl */
+
+/* line 69 : D:\www\mocal10n\public\css\style.styl */
 .has-error .help-block {
   display: block;
 }
 
-/* line 65 : D:\www\mocal10n\public\css\style.styl */
+/* line 74 : D:\www\mocal10n\public\css\style.styl */
 .delete-group-link {
   color: #ff6347;
 }
 
-/* line 67 : D:\www\mocal10n\public\css\style.styl */
+/* line 76 : D:\www\mocal10n\public\css\style.styl */
 .delete-group-link:hover {
   color: #f00;
 }
 
-/* line 73 : D:\www\mocal10n\public\css\style.styl */
+/* line 82 : D:\www\mocal10n\public\css\style.styl */
 
-/* line 75 : D:\www\mocal10n\public\css\style.styl */
+/* line 84 : D:\www\mocal10n\public\css\style.styl */
 .list-group-item .download-link,
 .list-group-item .delete-group-link {
   cursor: pointer;
@@ -93,31 +103,31 @@ html {
   margin-right: 10px;
 }
 
-/* line 80 : D:\www\mocal10n\public\css\style.styl */
+/* line 89 : D:\www\mocal10n\public\css\style.styl */
 .list-group-item .label {
   margin-right: 5px;
 }
 
-/* line 85 : D:\www\mocal10n\public\css\style.styl */
+/* line 94 : D:\www\mocal10n\public\css\style.styl */
 
-/* line 86 : D:\www\mocal10n\public\css\style.styl */
+/* line 95 : D:\www\mocal10n\public\css\style.styl */
 .phrases-panel .panel-heading {
   cursor: pointer;
 }
 
-/* line 90 : D:\www\mocal10n\public\css\style.styl */
+/* line 99 : D:\www\mocal10n\public\css\style.styl */
 
-/* line 91 : D:\www\mocal10n\public\css\style.styl */
+/* line 100 : D:\www\mocal10n\public\css\style.styl */
 .phrases-table td {
   width: 35%;
 }
 
-/* line 93 : D:\www\mocal10n\public\css\style.styl */
+/* line 102 : D:\www\mocal10n\public\css\style.styl */
 .phrases-table td:nth-child(1) {
   width: 15%;
 }
 
-/* line 99 : D:\www\mocal10n\public\css\style.styl */
+/* line 108 : D:\www\mocal10n\public\css\style.styl */
 /*.loader {
   display:block;
   position:absolute;
@@ -125,12 +135,12 @@ html {
   background:rgba(0,0,0,0.5);
 }*/
 
-/* line 106 : D:\www\mocal10n\public\css\style.styl */
+/* line 115 : D:\www\mocal10n\public\css\style.styl */
 #group-options {
   display: none;
 }
 
-/* line 108 : D:\www\mocal10n\public\css\style.styl */
+/* line 117 : D:\www\mocal10n\public\css\style.styl */
 #group-options.visible {
   display: block;
 }

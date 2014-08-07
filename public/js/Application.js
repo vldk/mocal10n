@@ -5,6 +5,14 @@ define(function (require) {
     var Backbone = require('backbone');
 
 
+    /** @type {Registry} */
+    var reg = require('./Registry');
+
+
+    /** @type {AlertsView} */
+    var AlertsView = require('./views/AlertsView');
+
+
     var Groups = require('./collections/Groups');
     var GroupsView = require('./views/groups/GroupsView');
 
@@ -27,7 +35,8 @@ define(function (require) {
             '*path': 'defaultRoute'
         },
         init: function(){
-            Backbone.history.start(/*{pushState: true}*/);
+            Backbone.history.start();
+            reg.set('alerts', new AlertsView());
         },
         defaultRoute: function(fragment, params){
             console.warn('Note: used default route "%s" with params: %o', fragment, params);
@@ -47,8 +56,10 @@ define(function (require) {
                 if(!_phrasesView){
                     var _group = _groups.get(groupId);
                     if(!_group){
-                        //TODO: <div class="alert alert-danger" role="alert">...</div>
-                        console.error('Group with id='+groupId+' does not existing. <a href="/#">Go to groups list</a>');
+
+                        reg.get('alerts').error('Group with id=' + groupId + ' does not existing. [Go to groups](1) list', '/#');
+
+                        console.error('Group with id='+groupId+' does not existing');
                         return;
                     }
                     _phrasesView = new PhrasesView({model:_group});
