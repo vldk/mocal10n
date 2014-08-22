@@ -5,8 +5,19 @@ define(function (require) {
     var BaseView = require('./BaseView');
 
 
+    /** @type {_} */
+    var _ = require('underscore');
+
+
     /** @type {GroupForm} */
     var GroupForm = require('./groups/GroupForm');
+
+    /** @type {Function}*/
+    var langTabTpl = _.template([
+        '<li data-lang="<%= lang %>" class="langTab <%= isCurrent? \'active\' : \'\' %>">',
+            '<a href="/#group/<%= grId%>/<%= lang %>"><%= lang.toUpperCase() %></a>',
+        '</li>'
+    ].join(''));
 
 
     /**
@@ -20,10 +31,11 @@ define(function (require) {
             'click #group-options-toggle': 'toggleGroupOptions'
         },
         $groupOpts: null,
+        $langTabs:null,
 
         /** @type {FGroupModel}*/
         model: null,
-
+        lang: 'en',
         editGroupForm: null,
 
         initialize: function(){
@@ -34,14 +46,29 @@ define(function (require) {
         render: function(lang){
             BaseView.prototype.render.call(this, {
                 group: this.model.toJSON(),
-                lang: lang
+                lang: lang,
+                allLangs: ['en']//['en', 'de', 'el']
             });
             this.editGroupForm.$container = this.$('#edit-group-container');
             this.editGroupForm.show();
 
             if(!this.$groupOpts){
                 this.$groupOpts = this.$('#group-options');
+                this.$langTabs = this.$('#lang-tabs');
             }
+
+            var _langs = ['en'],
+                _tabsContent = '';
+
+            _langs.forEach(function(langName){
+                _tabsContent += langTabTpl({
+                    lang:langName,
+                    isCurrent: langName === lang,
+                    grId: this.model.get('id')
+                });
+            }, this);
+
+            this.$langTabs.html(_tabsContent);
         },
         show: function(lang){
             if(!this.rendered){
@@ -54,6 +81,16 @@ define(function (require) {
         },
         switchToLang: function(lang){
             this.show(lang);
+
+            if(lang !== this.lang){
+                this.lang = lang;
+                this.$langTabs.children().removeClass('active').each(function(){
+                    if( $(this).data('lang') === lang) {
+                        $(this).addClass('active');
+                    }
+                });
+
+            }
 
             return this;
         },

@@ -43,6 +43,7 @@ For db-management can be used [Sqliteman](http://sqliteman.yarpen.cz/), [SQLiteM
      * ~~hardcoded passwords (done)~~
      * refactor passport strategy (currently used simple MemoryStore with sessions)
      * redirect to prev. page (before authorization)
+     * users should be stored in DB (currently they're hardcoded in config-file) 
      * roles? 
      * online users count (by socket.io) ?
  * navigation (with direct links)

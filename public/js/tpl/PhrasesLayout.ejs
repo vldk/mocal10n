@@ -8,20 +8,33 @@
         <button class="btn"><i class="glyphicon glyphicon-import"></i> Load EN template</button>
         <hr/>
         <div id="edit-group-container"></div>
+        <hr/>
+        <div class="new-lang-form">
+            <h4><i class="glyphicon glyphicon-plus-sign"></i> Add new language</h4>
+            <div class="input-group">
+                <input type="text" class="form-control" maxlength="2" placeholder="New lang, f.e. 'de'">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default" tabindex="-1">
+                        <i class="glyphicon glyphicon-plus"></i>Add
+                    </button>
+                    <% if(allLangs.length > 0) {%>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <% allLangs.forEach(function(langName){ %>
+                        <li><a href="#"><%=langName.toUpperCase()%></a></li>
+                        <%});%>
+                    </ul>
+                    <% } %>
+                </div>
+            </div>
+        </div>
     </div>
-    <hr/>
-
-    <div class="input-group col-xs-4">
-        <input type="text" class="form-control" maxlength="2" ng-model="newLang" placeholder="New lang, f.e. 'de'">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="button" ng-click="addNewLang()"><i
-                        class="glyphicon glyphicon-plus"></i> Add
-            </button>
-        </span>
-    </div>
 
     <hr/>
-    <ul class="nav nav-tabs">
+    <ul id="lang-tabs" class="nav nav-tabs">
         <li ng-repeat="msgObj in list" ng-class="{active:msgObj.lang === currentMsg.lang}"
             ng-click="changeTab(msgObj.lang)">
             <a ng-click="$event.preventDefault()" href="/#/namespaces/{{nsName}}/{{msgObj.lang}}"><%= lang.toUpperCase()%></a>
@@ -29,7 +42,7 @@
     </ul>
     <div class="tab-content">
         <br/>
-        <div class="btn-toolbar">
+        <!--<div class="btn-toolbar">
             <div class="col-xs-4" ng-hide="rawView">
                 <input type="text" class="form-control" ng-model="searchFilter" placeholder="Search...">
             </div>
@@ -37,7 +50,7 @@
             <button class="btn btn-primary" ng-click="saveCurrentMessages()"><i class="glyphicon glyphicon-floppy-disk"></i> Save</button>
             <button class="btn btn-primary"><i class="glyphicon glyphicon-download"></i> Download <%=lang.toUpperCase()%></button>
 
-        </div>
+        </div>-->
     </div>
 
 </script>

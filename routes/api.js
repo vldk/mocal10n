@@ -39,24 +39,12 @@ SocketRouter.prototype = {
                 console.log('groups:update', input.id);
                 db.Group.find(input.id)
                     .success(function(model){
-                        model.updateAttributes({
+                        return model.updateAttributes({
                             name: input.name,
                             is_common: input.is_common
                         }).complete(fn);
                     })
                     .error(fn)
-                ;
-                    /*.then(function(model){
-                        return model.updateAttributes({
-                            name: input.name,
-                            is_common: input.is_common
-                        });
-                    })
-                    .success(function(){
-                        console.log(arguments);
-                        fn(null);
-                    })
-                    .error(fn)*/
                 ;
             })
             .on('groups:delete', function(input, fn){
