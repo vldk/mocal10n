@@ -7,8 +7,6 @@
         <button class="btn"><i class="glyphicon glyphicon-download-alt"></i> As Zip</button>
         <button class="btn"><i class="glyphicon glyphicon-import"></i> Load EN template</button>
         <hr/>
-        <div id="edit-group-container"></div>
-        <hr/>
         <div class="new-lang-form">
             <h4><i class="glyphicon glyphicon-plus-sign"></i> Add new language</h4>
             <div class="input-group">
@@ -17,28 +15,41 @@
                     <button type="button" class="btn btn-default" tabindex="-1">
                         <i class="glyphicon glyphicon-plus"></i>Add
                     </button>
-                    <% if(allLangs.length > 0) {%>
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <% allLangs.forEach(function(langName){ %>
-                        <li><a href="#"><%=langName.toUpperCase()%></a></li>
-                        <%});%>
-                    </ul>
-                    <% } %>
                 </div>
             </div>
         </div>
+        <hr/>
+        <div id="group-langs">
+            <h4><i class="glyphicon glyphicon-globe"></i> Supported languages for this group:</h4>
+            <!-- TODO: need to implement selecting/deselecting all langs
+            <div class="checkbox">
+                <label> <input type="checkbox"> All</label>
+            </div>
+            <hr/> -->
+            <% if(allLangs.length > 0) {%>
+            <% allLangs.forEach(function(langName){ %>
+            <div class="form-group">
+                <div class="input-group checkbox <%= langName === 'en'? 'disabled': '' %>">
+                    <label class="btn">
+                        <input data-value="lang-<%=langName.toLowerCase()%>" type="checkbox" <%= langName === 'en'? 'disabled': '' %> > <%=langName.toUpperCase()%>
+                    </label>
+
+                    <button type="button" class="btn btn-default" <%= langName === 'en'? 'disabled': '' %>>
+                        <i class="glyphicon glyphicon-trash"></i> Remove
+                    </button>
+
+                </div>
+            </div>
+            <%});%>
+            <% } %>
+        </div>
+        <hr/>
+        <div id="edit-group-container"></div>
     </div>
 
     <hr/>
     <ul id="lang-tabs" class="nav nav-tabs">
-        <li ng-repeat="msgObj in list" ng-class="{active:msgObj.lang === currentMsg.lang}"
-            ng-click="changeTab(msgObj.lang)">
-            <a ng-click="$event.preventDefault()" href="/#/namespaces/{{nsName}}/{{msgObj.lang}}"><%= lang.toUpperCase()%></a>
-        </li>
+        <!-- see langTabTpl in PhrasesView.js -->
     </ul>
     <div class="tab-content">
         <br/>

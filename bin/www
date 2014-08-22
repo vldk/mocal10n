@@ -19,6 +19,13 @@ db
             throw err[0];
         } else {
             console.log('connected to DB');
+
+            db.Langs.count().success(function(c){
+                if(c === 0){
+                    db.Langs.create({code:'en'});
+                }
+            });
+
             var server = app.listen(app.get('port'), function () {
                 debug('Express server listening on port ' + server.address().port);
             });

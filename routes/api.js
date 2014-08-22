@@ -19,6 +19,10 @@ SocketRouter.prototype = {
         this.socket = socket;
 
         this.socket
+            .on('langs:read', function(input, fn){
+                console.log('langs:read', input);
+                db.Langs.findAll().done(fn);
+            })
             .on('groups:read', function(input, fn){
                 console.log('groups:read', input);
                 if(input.id){

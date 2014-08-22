@@ -12,6 +12,10 @@ define(function (require) {
     /** @type {GroupForm} */
     var GroupForm = require('./groups/GroupForm');
 
+
+    /** @type {Registry} */
+    var registry = require('./../Registry');
+
     /** @type {Function}*/
     var langTabTpl = _.template([
         '<li data-lang="<%= lang %>" class="langTab <%= isCurrent? \'active\' : \'\' %>">',
@@ -28,8 +32,12 @@ define(function (require) {
         templateId: '#phrasesLayout',
         container: '#appContent',
         events: {
-            'click #group-options-toggle': 'toggleGroupOptions'
+            'click #group-options-toggle': 'toggleGroupOptions',
+            'submit .new-lang-form': 'onSubmitNewLang'
         },
+
+        $globalLangsForm: null,
+
         $groupOpts: null,
         $langTabs:null,
 
@@ -44,10 +52,12 @@ define(function (require) {
         },
 
         render: function(lang){
+            var allLangs = registry.get('langs');
+
             BaseView.prototype.render.call(this, {
                 group: this.model.toJSON(),
                 lang: lang,
-                allLangs: ['en']//['en', 'de', 'el']
+                allLangs: allLangs.map(function(_model){ return _model.get('code')})
             });
             this.editGroupForm.$container = this.$('#edit-group-container');
             this.editGroupForm.show();
@@ -55,9 +65,10 @@ define(function (require) {
             if(!this.$groupOpts){
                 this.$groupOpts = this.$('#group-options');
                 this.$langTabs = this.$('#lang-tabs');
+                this.$globalLangsForm = this.$('.new-lang-form');
             }
 
-            var _langs = ['en'],
+            var _langs = this.model.get('langs'),
                 _tabsContent = '';
 
             _langs.forEach(function(langName){
@@ -97,6 +108,12 @@ define(function (require) {
         toggleGroupOptions: function(){
             this.$groupOpts.toggleClass('visible');
         },
+
+        onSubmitNewLang: function($e){
+            $e.preventDefault();
+
+        },
+
         remove: function(){
 
             this.editGroupForm.remove();

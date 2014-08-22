@@ -14,7 +14,17 @@ define(function (require) {
         defaults: {
             id:null,
             name:'',
+            langs:['en'],
             is_common: false
+        },
+        parse: function(attrs, opts){
+            console.info(opts, attrs);
+            if(opts.parse){
+                if(typeof attrs.langs === "string"){
+                    attrs.langs = attrs.langs.split(',');
+                }
+            }
+            return attrs;
         }
     });
 });

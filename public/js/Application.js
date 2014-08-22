@@ -13,6 +13,8 @@ define(function (require) {
     var AlertsView = require('./views/AlertsView');
 
 
+    var AllLangs = require('./collections/Langs');
+
     var Groups = require('./collections/Groups');
     var GroupsView = require('./views/groups/GroupsView');
 
@@ -37,6 +39,11 @@ define(function (require) {
         init: function(){
             Backbone.history.start();
             reg.set('alerts', new AlertsView());
+
+            var langs = new AllLangs();
+            reg.set('langs', langs);
+
+            langs.fetch();
         },
         defaultRoute: function(fragment, params){
             console.warn('Note: used default route "%s" with params: %o', fragment, params);

@@ -14,6 +14,11 @@ module.exports = function(sequelize, /*exports*/DataTypes) {
                 notEmpty: true
             }
         },
+        langs: {
+            type: DataTypes.STRING, //supported languages for this group. Example: 'en,ru'
+            allowNull: false,
+            defaultValue: 'en'
+        },
         is_common: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
