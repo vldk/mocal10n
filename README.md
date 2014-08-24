@@ -46,9 +46,9 @@ For db-management can be used [Sqliteman](http://sqliteman.yarpen.cz/), [SQLiteM
      * users should be stored in DB (currently they're hardcoded in config-file) 
      * roles? 
      * online users count (by socket.io) ?
- * navigation (with direct links)
-     * ~~to groups list (default route) (almost done)~~     
-     * to group with specific lang ('en' by default) /#group/6/en
+ * navigation (with direct links)(almost done)
+     * ~~to groups list (default route) ~~     
+     * ~~to group with specific lang ('en' by default) /#group/6/en~~
  * ~~Notification system (with [stylized alerts](http://getbootstrap.com/components/#alerts))~~
  * models editing:
      * ~~Group create~~ 
