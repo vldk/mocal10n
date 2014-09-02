@@ -18,7 +18,7 @@ define(function (require) {
             is_common: false
         },
         parse: function(attrs, opts){
-            console.info(opts, attrs);
+            //console.info(opts, attrs);
             if(opts.parse){
                 if(typeof attrs.langs === "string"){
                     attrs.langs = attrs.langs.split(',');

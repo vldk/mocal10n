@@ -23,6 +23,10 @@ SocketRouter.prototype = {
                 console.log('langs:read', input);
                 db.Langs.findAll().done(fn);
             })
+            .on('langs:create', function(input, fn){
+                console.log('langs:create', input);
+                db.Lands.create(input).complete(fn);
+            })
             .on('groups:read', function(input, fn){
                 console.log('groups:read', input);
                 if(input.id){

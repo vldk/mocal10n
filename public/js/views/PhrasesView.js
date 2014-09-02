@@ -12,6 +12,9 @@ define(function (require) {
     /** @type {GroupForm} */
     var GroupForm = require('./groups/GroupForm');
 
+    /** @type {LangsForm}*/
+    var LangsForm = require('./LangsForm');
+
 
     /** @type {Registry} */
     var registry = require('./../Registry');
@@ -32,11 +35,8 @@ define(function (require) {
         templateId: '#phrasesLayout',
         container: '#appContent',
         events: {
-            'click #group-options-toggle': 'toggleGroupOptions',
-            'submit .new-lang-form': 'onSubmitNewLang'
+            'click #group-options-toggle': 'toggleGroupOptions'
         },
-
-        $globalLangsForm: null,
 
         $groupOpts: null,
         $langTabs:null,
@@ -44,11 +44,15 @@ define(function (require) {
         /** @type {FGroupModel}*/
         model: null,
         lang: 'en',
+        /**@type {LangsForm}*/
         editGroupForm: null,
+
+        langsForm:null,
 
         initialize: function(){
             BaseView.prototype.initialize.call(this);
             this.editGroupForm = new GroupForm({model: this.model});
+            this.langsForm = new LangsForm();
         },
 
         render: function(lang){
@@ -62,24 +66,26 @@ define(function (require) {
             this.editGroupForm.$container = this.$('#edit-group-container');
             this.editGroupForm.show();
 
+            this.langsForm.$container = this.$(this.langsForm.container);
+            this.langsForm.render().show();
+
             if(!this.$groupOpts){
                 this.$groupOpts = this.$('#group-options');
                 this.$langTabs = this.$('#lang-tabs');
-                this.$globalLangsForm = this.$('.new-lang-form');
             }
 
             var _langs = this.model.get('langs'),
-                _tabsContent = '';
+                _tabsContent;
 
-            _langs.forEach(function(langName){
-                _tabsContent += langTabTpl({
+            _tabsContent = _langs.map(function(langName){
+                return langTabTpl({
                     lang:langName,
                     isCurrent: langName === lang,
                     grId: this.model.get('id')
                 });
             }, this);
 
-            this.$langTabs.html(_tabsContent);
+            this.$langTabs.html(_tabsContent.join(''));
         },
         show: function(lang){
             if(!this.rendered){
@@ -108,16 +114,14 @@ define(function (require) {
         toggleGroupOptions: function(){
             this.$groupOpts.toggleClass('visible');
         },
-
-        onSubmitNewLang: function($e){
-            $e.preventDefault();
-
-        },
-
         remove: function(){
 
             this.editGroupForm.remove();
             this.editGroupForm = null;
+
+            this.langsForm.remove();
+            this.langsForm = null;
+
 
             delete this.$groupOpts;
 

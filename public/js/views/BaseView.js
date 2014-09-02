@@ -65,7 +65,6 @@ define(function (require) {
      *
      * @class BaseView
      * @extends {Backbone.View}
-     * @property {Boolean} rendered
      */
     var BaseView = Backbone.View.extend({
         /**
@@ -103,7 +102,7 @@ define(function (require) {
                 this.template = TemplateCache.get(this.templateId);
             }
             //this.on('change:visibility', this.onChangeVisibility);
-            //this.on('render', this.afterRender);
+            this.on('render', this.afterRender);
         },
         /**
          * Render view
@@ -111,7 +110,6 @@ define(function (require) {
          * use MCBaseView.prototype.render.apply(this) (preferred variant if need deep inheritance)
          * or this.constructor.__super__.render.call(this);
          * @param {Object=} templateData
-         * @param {boolean=} appendToContainer If false (by default): content for $container will be replaced
          * @returns {BaseView}
          */
         render: function(templateData){
