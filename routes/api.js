@@ -25,7 +25,7 @@ SocketRouter.prototype = {
             })
             .on('langs:create', function(input, fn){
                 console.log('langs:create', input);
-                db.Lands.create(input).complete(fn);
+                db.Langs.create(input).complete(fn);
             })
             .on('groups:read', function(input, fn){
                 console.log('groups:read', input);

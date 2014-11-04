@@ -12,12 +12,15 @@ define(function (require) {
 
 
     var LangModel = Backbone.Model.extend({
-        idAttribute:'code',
+        //idAttribute:'code',
         defaults: {
             code: 'en'
         }
     });
-
+    /**
+     * @class LangsCollection
+     * @extends {Backbone.Collection}
+     */
     return Backbone.Collection.extend({
         url: 'langs',
         model: LangModel,

@@ -26,6 +26,20 @@ define(function (require) {
         '</li>'
     ].join(''));
 
+    var phraseLangsTpl = _.template([
+    '<div class="form-group">',
+        '<div class="input-group checkbox <%= langName === \'en\'? \'disabled\': \'\' %>">',
+        '<label class="btn">',
+            '<input data-value="lang-<%=langName.toLowerCase()%>" type="checkbox" <%= langName === \'en\'? \'disabled\': \'\' %> > <%=langName.toUpperCase()%>',
+        '</label>',
+
+        '<button type="button" class="btn btn-default" <%= langName === \'en\'? \'disabled\': \'\' %>>',
+            '<i class="glyphicon glyphicon-trash"></i> Remove',
+        '</button>',
+
+        '</div>',
+    '</div>'
+    ].join(''));
 
     /**
      * @class PhrasesView
@@ -58,11 +72,26 @@ define(function (require) {
         render: function(lang){
             var allLangs = registry.get('langs');
 
+            function getPhrasesLangs(/*LangsCollection*/lagsCollection){
+                return lagsCollection.map(function(/*LangModel*/langModel){
+                    return phraseLangsTpl({
+                        langName: langModel.get('code')
+                    });
+                }).join('');
+            }
+
+            if(!allLangs.length){
+                allLangs.once('sync', function(langs){
+                    $('#group-langs-list').html(getPhrasesLangs(langs));
+                });
+            }
+
             BaseView.prototype.render.call(this, {
                 group: this.model.toJSON(),
                 lang: lang,
-                allLangs: allLangs.map(function(_model){ return _model.get('code')})
+                phrasesLangs: getPhrasesLangs(allLangs)
             });
+
             this.editGroupForm.$container = this.$('#edit-group-container');
             this.editGroupForm.show();
 
