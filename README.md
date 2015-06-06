@@ -1,34 +1,6 @@
-Utility for editing localization phrases for Mobile Casino Projects
+Just example project witch are use Express, Socket.io & Backbone
 =========
 
-Version
----------
-0.0.2
-
-Quick Start
---------------
-To install dependencies:    
-
-```sh
-npm install
-```
-
-Check if follow dependencies are installed:
-
- * node.js  >= v0.10
- * in case of trouble with installing sqlite3 on windows [read this](https://github.com/mapbox/node-sqlite3/wiki/Building-on-Windows)  
-
-Then need perform next steps:
-
- 1. Copy config/index.js.example to config/index.js and set up needed params (Note: index.js in svn:ignores) 
- 2. Run web-server   
-
-Run server:
-```sh
-node ./bin/www
-```
-
-By default application is available on [http://localhost:3000/](http://localhost:3000/) (can be changed in config/index.js)
 
 Development
 ---
